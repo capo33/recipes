@@ -4,10 +4,9 @@ import express from "express";
 
 const router = express.Router();
 
-const uploadFolder =
-process.env.NODE_ENV === "production" ? "/var/data/uploads/" : "uploads/";
+const uploadFolder = "uploads/";
 
-  // Set Storage Engine
+// Set Storage Engine
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadFolder);
