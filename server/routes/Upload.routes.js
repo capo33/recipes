@@ -5,7 +5,7 @@ import express from "express";
 const router = express.Router();
 
 const uploadFolder =
-  process.env.NODE_ENV === "production" ? "/var/data/uploads/" : "uploads/";
+process.env.NODE_ENV === "production" ? "/var/data/uploads/" : "uploads/";
 
   // Set Storage Engine
 const storage = multer.diskStorage({
