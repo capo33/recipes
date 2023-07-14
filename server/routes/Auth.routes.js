@@ -1,8 +1,7 @@
 import express from "express";
 
 import { protect, admin } from "../middleware/authmiddleware.js";
-import * as authController from "../controllers/authController.js";
-
+import authController from "../controllers/AuthController.js";
 const router = express.Router();
 
 router.get("/logout", authController.logout);
