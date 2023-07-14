@@ -20,7 +20,7 @@ const Category = ({ recipe, handleChange }) => {
       <select
         id='category'
         name='category'
-        value={recipe?.category?._id ? recipe.category._id : ""}
+        value={recipe?.category?._id }
         onChange={handleChange}
         className='shadow-sm p-2 focus:outline-none focus:ring-teal-500 focus:border-teal-500 mt-1 block  border border-gray-300 rounded-md'
       >
