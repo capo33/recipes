@@ -24,10 +24,7 @@ connectToDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.json({ message: "API running..." });
-});
-
+// Routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/recipes", recipeRoutes);
 app.use("/api/v1/categories", categoryRoutes);
