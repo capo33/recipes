@@ -89,7 +89,7 @@ const updateRecipe = async (req, res) => {
 
     const updatedRecipe = await RecipeModel.findByIdAndUpdate(
       recipeId,
-      req.body,
+      { ...req.body },
       { new: true }
     );
 

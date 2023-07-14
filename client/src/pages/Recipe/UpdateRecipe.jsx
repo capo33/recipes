@@ -3,6 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import ReactQuill from "react-quill";
+
+import "react-quill/dist/quill.snow.css";
 
 import {
   getSingleRecipe,
@@ -154,7 +157,31 @@ const UpdateRecipe = () => {
                   setInputValue={setInputValue}
                 />
 
-                <Editor recipe={data} handleChange={handleChange} />
+                {/* <Editor recipe={data} handleChange={handleChange} /> */}
+                <div className='mb-5'>
+                  <label
+                    htmlFor='instructions'
+                    className='block text-sm font-medium text-gray-700'
+                  >
+                    Instructions
+                  </label>
+                  <div className='mt-1'>
+                    <ReactQuill
+                      theme='snow'
+                      value={data?.instructions || ""}
+                      onChange={(value) =>
+                        setData((prevRecipe) => ({
+                          ...prevRecipe,
+                          instructions: value,
+                        }))
+                      }
+                      modules={Editor.modules}
+                      formats={Editor.formats}
+                      bounds={".app"}
+                      placeholder={"Write something awesome..."}
+                    />
+                  </div>
+                </div>
                 <CookingTime recipe={data} handleChange={handleChange} />
                 <Category recipe={data} handleChange={handleChange} />
                 <UploadPicture

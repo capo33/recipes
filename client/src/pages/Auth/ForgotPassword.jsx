@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
- import { forgotPassword } from "../../redux/feature/Auth/authSlice";
+import { forgotPassword } from "../../redux/feature/Auth/authSlice";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 
 const ForgotPassword = () => {

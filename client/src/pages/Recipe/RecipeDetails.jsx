@@ -233,7 +233,7 @@ const RecipeDetails = () => {
                       }`}
                     >
                       {value === "instructions" ? (
-                        <div
+                        <h2 className='text-2xl font-semibold text-gray-800 leading-tight mb-4'
                           dangerouslySetInnerHTML={{
                             __html: desc,
                           }}
@@ -305,10 +305,10 @@ const RecipeDetails = () => {
                   )}
                 </div>
               </div>
-                    {recipe?.owner?._id === userID && (
-              <div className='p-4 border-t border-b md:border md:rounded mt-10 bg-blue-gray-50'>
-                <div className='flex justify-around '>
-                  <div className='flex items-center'>
+              {recipe?.owner?._id === userID && (
+                <div className='p-4 border-t border-b md:border md:rounded mt-10 bg-blue-gray-50'>
+                  <div className='flex justify-around '>
+                    <div className='flex items-center'>
                       <>
                         <Link
                           to={`/update-recipe/${recipe?._id}`}
@@ -326,10 +326,10 @@ const RecipeDetails = () => {
                           <span className='text-sm'>Delete</span>
                         </button>
                       </>
+                    </div>
                   </div>
                 </div>
-              </div>
-                    )}
+              )}
             </div>
           </div>
         </div>
