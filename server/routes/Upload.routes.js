@@ -24,12 +24,12 @@ const storage = multer.diskStorage({
 // Check File Type
 const checkFileType = (file, cb) => {
   // Allowed extensions
-  const filetypes = /jpg|jpeg|png/;
+  const filetypes = /jpe?g|png|webp/;
+  const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
   // Check extension
-
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   // Check mime type
-  const mimetype = filetypes.test(file.mimetype);
+  const mimetype = mimetypes.test(file.mimetype);
 
   if (extname && mimetype) {
     return cb(null, true);
@@ -40,13 +40,7 @@ const checkFileType = (file, cb) => {
 };
 
 // Init Upload
-const upload = multer({
-  storage,
-  limits: { fileSize: 1000000 }, // 1MB
-  fileFilter: (req, file, cb) => {
-    checkFileType(file, cb);
-  },
-});
+const upload = multer({ storage, fileFilter});
 
 // @route POST /upload
 // @desc Uploads file to DB
