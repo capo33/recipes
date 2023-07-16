@@ -4,12 +4,11 @@ import express from "express";
 
 const router = express.Router();
 
-const uploadFolder = "uploads/";
-
+ 
 // Set Storage Engine
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, uploadFolder);
+    cb(null, 'uploads/')
   },
   // we describe how we want the filename to be formatted
   filename: (req, file, cb) => {
@@ -52,10 +51,7 @@ const upload = multer({
 // @route POST /upload
 // @desc Uploads file to DB
 router.post("/", upload.single("image"), (req, res) => {
-  res.send({
-    message: "Image Uploaded Successfully",
-    image: `/${req.file.path.replace(/\\/g, "/")}`,
-  });
+  res.send(`/${req.file.path}`)
 });
 
 export default router;

@@ -37,7 +37,7 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 // Make uploads folder static
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
-  app.use("/uploads", express.static("/var/data/uploads"));
+  app.use('/uploads', express.static('/var/data/uploads'));
   app.use(express.static(path.join(__dirname, "/client/build")));
 
   // for any route that is not api, redirect to index.html
