@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 });
 
 // Check File Type
-const checkFileType = (file, cb) => {
+const fileFilter = (file, cb) => {
   // Allowed extensions
   const filetypes = /jpe?g|png|webp/;
   const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
