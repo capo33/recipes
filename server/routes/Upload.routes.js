@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 });
 
 // Check File Type
-const fileFilter = (file, cb) => {
+const checkFileType = (file, cb) => {
   // Allowed extensions
   const filetypes = /jpe?g|png|webp/;
   const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
@@ -40,7 +40,13 @@ const fileFilter = (file, cb) => {
 };
 
 // Init Upload
-const upload = multer({ storage, fileFilter});
+const upload = multer({
+  storage,
+  limits: { fileSize: 1000000 }, // 1MB
+  fileFilter: (req, file, cb) => {
+    checkFileType(file, cb);
+  },
+});
 
 // @route POST /upload
 // @desc Uploads file to DB
